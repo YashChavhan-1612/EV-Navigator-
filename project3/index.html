@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EV Navigator</title>
+
+  <!-- TomTom Maps SDK -->
+  <link rel="stylesheet" href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps.css" />
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.20.0/maps/maps-web.min.js"></script>
+
+  <!-- Optional: Custom styling -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  
+  
+  <nav>
+    <div class="navbar">
+      <div class="logo">
+        <h1>EV Navigator</h1>
+      </div>
+      <form id="userForm">
+        <input type="text" placeholder="Enter Your Location" class="SearchBox" />
+        <button type="submit" class="Submit-button">Search</button>
+      </form>
+    </div>
+    <!--<button onclick="logout()" style="background:#f44336; color:white; border:none; padding:8px 15px;">Logout</button>-->
+
+  </nav>
+
+  <main class="container">
+    <h2>Find Nearby EV Station</h2>
+    <div class="results"></div>
+    <div id="map"></div>
+  </main>
+
+  <!-- Your script file -->
+  <script src="script.js"></script>
+
+<footer style="background-color: rgb(59, 59, 110); margin-bottom: 2px; display:flex; align-items: center;justify-content: center;">
+  <button onclick="logout()" style="margin-left: 20px;  background-color: rgb(218, 221, 222); padding: 15px 30px;border-radius: 8px; ;" >Logout</button>
+
+<script>
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+  }
+</script>
+
+</footer>
+</body>
+</html>
